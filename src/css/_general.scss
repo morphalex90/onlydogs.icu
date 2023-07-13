@@ -1,0 +1,141 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    color: #fff;
+    background: #ff1493;
+}
+
+::selection {
+    color: #fff;
+    background: #ff1493;
+}
+
+body {
+    margin: 0;
+    font-family: "Fira Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #000;
+    // font-size: 14px;
+    color: #fff;
+}
+
+// .visually-hidden {
+//     background-color: #fff;
+//     padding: 7px 3px;
+//     border-radius: 0 0 3px 3px;
+//     position: absolute;
+//     left: 20px;
+//     transform: translateY(-370%);
+//     transition: transform 325ms ease-in;
+//     color: #000 !important;
+//     z-index: 1000;
+
+//     &:focus {
+//         transform: translateY(0);
+//     }
+// }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s;
+
+    &:hover {
+        color: #ff1493 !important;
+    }
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p {
+//     margin-top: 0;
+// }
+
+// h1 {
+//     text-align: center;
+
+//     &::first-letter {
+//         font-size: 30px;
+//         color: #ff1493;
+//     }
+
+//     @media only screen and (min-width: 768px) {
+//         text-align: left;
+//     }
+// }
+
+main {
+    // width: 95%;
+    max-width: 100%;
+    // margin: 0 auto;
+    padding-top: 58px;
+    min-height: calc(100vh - 54px);
+    overflow: hidden;
+}
+
+// .d-flex {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 15px;
+
+//     @media only screen and (min-width: 768px) {
+//         flex-direction: row;
+//         flex-wrap: wrap;
+
+//         > * {
+//             flex-grow: 1;
+//             flex-basis: 0;
+//         }
+//     }
+// }
+
+// .text-center {
+//     text-align: center;
+// }
+
+// .text-right {
+//     text-align: right;
+// }
+
+// ul {
+//     margin-top: 0px;
+//     padding-left: 15px;
+// }
+
+.button {
+    padding: 12px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #ff1493;
+    color: #fff;
+    border: 1px solid #ff1493;
+    transition: all 0.4s;
+    font-weight: bold;
+    font-size: 15px;
+
+    &:hover {
+        border: 1px solid #fff;
+    }
+}
+
+.section {
+    &__container {
+        width: 95%;
+        max-width: 1400px;
+        margin: auto;
+    }
+}

@@ -1,0 +1,92 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 95%;
+        max-width: 1400px;
+        margin: auto;
+    }
+
+    &__logo {
+        width: 100%;
+        text-align: center;
+
+        @media only screen and (min-width: 768px) {
+            max-width: 200px;
+            text-align: left;
+        }
+    }
+
+    &__categories {
+        width: 100%;
+
+        @media only screen and (min-width: 768px) {
+            max-width: calc(100% - 200px);
+        }
+
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 10px;
+            justify-content: center;
+
+            @media only screen and (min-width: 768px) {
+                justify-content: flex-end;
+                gap: 0 20px;
+            }
+
+            margin: 0;
+            padding-left: 0;
+            list-style-type: none;
+
+            li {
+                a {
+                    text-transform: capitalize;
+                    &.is-active {
+                        color: #ff1493;
+                    }
+                }
+            }
+        }
+    }
+
+    &__breeds {
+        width: 100%;
+        max-width: 100%;
+
+        nav {
+            overflow-x: scroll;
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &__list {
+            margin: 0;
+            margin-top: 10px;
+            padding-left: 0;
+            display: flex;
+            gap: 10px;
+            list-style-type: none;
+
+            li {
+                flex: 0 0 auto;
+                background-color: #ff1493;
+                border-radius: 15px;
+                padding: 7px 13px;
+                cursor: pointer;
+            }
+        }
+    }
+}
