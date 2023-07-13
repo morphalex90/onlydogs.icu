@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { useRouter } from 'next/router';
-
 import { Breed } from '@/contex/BreedContext';
 
 export default function Cats({ category = null }) {
