@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import axios from 'axios';
 import Layout from '@/components/Layout';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
-export default function Home() {
+export default function page404() {
 
 	return (
 		<>
