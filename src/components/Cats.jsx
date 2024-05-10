@@ -22,7 +22,7 @@ export default function Cats({ category = null }) {
         axios
             .get('https://api.thedogapi.com/v1/images/search?page=0&limit=30' + (category != null ? '&category_ids=' + category : '') + (breed != null ? '&breed_ids=' + breed : ''))
             .then((res) => { setCats(res.data); })
-            .catch((err) => { console.log(err); });
+        // .catch((err) => { console.log(err); });
     }
 
     return (
@@ -38,7 +38,7 @@ export default function Cats({ category = null }) {
                     </Masonry>
                 </ResponsiveMasonry>
             }
-            <button type="button" className="button" style={{ position: 'fixed', left: '50%', bottom: 50, zIndex: 999, transform: 'translateX(-50%)' }} onClick={() => getCats()}>Get more dogs</button>
+            <button type="button" className="button" style={{ position: 'fixed', left: '50%', bottom: 50, zIndex: 999, transform: 'translateX(-50%)' }} onClick={() => getCats()}>Get new dogs</button>
         </>
     );
 }
