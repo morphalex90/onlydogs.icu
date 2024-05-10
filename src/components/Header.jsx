@@ -26,14 +26,14 @@ export default function Header() {
         axios
             .get('https://api.thedogapi.com/v1/categories?page=0&limit=15&api_key=' + process.env.NEXT_PUBLIC_CAT_API)
             .then((res) => { setCategories(res.data); })
-            .catch((err) => { console.log(err); });
+        // .catch((err) => { console.log(err); });
     }
 
     const getBreeds = () => {
         axios
             .get('https://api.thedogapi.com/v1/breeds?page=0&limit=100&api_key=' + process.env.NEXT_PUBLIC_CAT_API)
             .then((res) => { setBreeds(res.data); })
-            .catch((err) => { console.log(err); });
+        // .catch((err) => { console.log(err); });
     }
 
     return (
