@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import Cats from '@/components/Cats';
-import { useRouter } from 'next/router';
 
 export default function Category() {
     const router = useRouter();
@@ -25,7 +25,6 @@ export default function Category() {
                         <Cats category={router.isReady ? router.query.category_id : null} />
                     </div>
                 </section>
-
             </Layout>
         </>
     )
