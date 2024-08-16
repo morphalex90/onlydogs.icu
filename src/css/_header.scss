@@ -85,7 +85,18 @@
                 background-color: #ff1493;
                 border-radius: 15px;
                 padding: 7px 13px;
-                cursor: pointer;
+                // cursor: pointer;
+
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    font-size: inherit;
+                    color: inherit;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    cursor: pointer;
+                    margin: inherit;
+                }
             }
         }
     }
