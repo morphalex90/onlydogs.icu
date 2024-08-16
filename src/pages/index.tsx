@@ -22,7 +22,6 @@ export default function Home() {
 						<Cats />
 					</div>
 				</section>
-
 			</Layout>
 		</>
 	)
