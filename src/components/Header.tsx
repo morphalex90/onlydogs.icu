@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Breed } from '@/contex/BreedContext';
 import telegram from '@/img/telegram.png';
-import Image from 'next/image';
 
 export default function Header() {
     const [categories, setCategories] = useState([]);
@@ -48,7 +48,7 @@ export default function Header() {
                     {categories.length > 0 &&
                         <nav>
                             <ul className="header__categories__list">
-                                {(categories.map(cat =>
+                                {(categories.map((cat: any) =>
                                     <li key={cat.id}><Link href={'/category/' + cat.id} className={router.asPath === ('/category/' + cat.id) ? 'is-active' : ''}>{cat.name}</Link></li>
                                 ))}
                                 <li><Link href="https://t.me/+C6ZhfIzJVL84M2M0" target="_blank" rel="noreferrer"><Image src={telegram} height="20" width="20" alt="Telegram" title="Join the Telegram channel" /></Link></li>
@@ -61,8 +61,8 @@ export default function Header() {
                     {breeds.length > 0 &&
                         <nav>
                             <ul className="header__breeds__list">
-                                {(breeds.map(tmpBreed =>
-                                    <li key={tmpBreed.id} onClick={() => setBreed(tmpBreed.id)}>{tmpBreed.name}</li>
+                                {(breeds.map((tmpBreed: any) =>
+                                    <li key={tmpBreed.id}><button type="button" onClick={() => setBreed(tmpBreed.id)}>{tmpBreed.name}</button></li>
                                 ))}
                             </ul>
                         </nav>
