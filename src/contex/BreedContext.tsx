@@ -1,8 +1,8 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
 type BreedContext = {
     breed: string,
-    setBreed: any,
+    setBreed: Dispatch<SetStateAction<string>>,
 };
 
 export const Breed = createContext<BreedContext>({} as BreedContext);
