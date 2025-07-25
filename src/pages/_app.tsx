@@ -5,7 +5,7 @@ import PlausibleProvider from 'next-plausible';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <PlausibleProvider domain="onlydogs.icu" customDomain="plausible.morpheus90.com">
+    <PlausibleProvider domain="onlydogs.icu" customDomain="plausible.morpheus90.com" selfHosted={true}>
       <Context>
         <Component {...pageProps} />
       </Context>
