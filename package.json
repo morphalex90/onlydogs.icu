@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.8.4",
-    "next": "^15.5.7",
+    "next": "^15.5.9",
     "next-plausible": "^3.12.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -24,7 +24,7 @@
     "@types/react-dom": "^19",
     "@types/react-responsive-masonry": "^2.6.0",
     "eslint": "^9",
-    "eslint-config-next": "^15.5.7",
+    "eslint-config-next": "^15.5.9",
     "typescript": "^5"
   }
 }
