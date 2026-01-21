@@ -1,6 +1,22 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry"
+import dynamic from 'next/dynamic';
+
+const ResponsiveMasonry = dynamic(
+    () => import("react-responsive-masonry").then((mod) => mod.ResponsiveMasonry),
+    {
+        loading: () => <p>Loading...</p>,
+        ssr: false,
+    }
+);
+const Masonry = dynamic(
+    () => import("react-responsive-masonry").then((mod) => mod.default),
+    {
+        loading: () => <p>Loading...</p>,
+        ssr: false,
+    }
+);
+
 import { useRouter } from 'next/router';
 
 import { Breed } from '@/contex/BreedContext';
@@ -14,19 +30,19 @@ export default function Cats({ category = null }: { category?: string | null | s
 
     const { breed, setBreed } = useContext(Breed); // saved from contex
 
-    useEffect(() => {
-        if (router.pathname !== '/category/[category_id]') {
-            setBreed('');
-        }
-        getCats();
-    }, [category, breed]);
-
     const getCats = () => {
         axios
             .get('https://api.thedogapi.com/v1/images/search?page=0&limit=30' + (category != null ? '&category_ids=' + category : '') + (breed != null ? '&breed_ids=' + breed : ''))
             .then((res) => { setCats(res.data); })
         // .catch((err) => { console.log(err); });
     }
+
+    useEffect(() => {
+        if (router.pathname !== '/category/[category_id]') {
+            setBreed('');
+        }
+        getCats();
+    }, [category, breed]);
 
     return (
         <>
