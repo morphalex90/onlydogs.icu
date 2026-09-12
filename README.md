@@ -14,8 +14,8 @@ Dog photo wall built with Next.js (pages router). Photos come from [The Dog API]
 
 ## Pages
 
-- `/` — home gallery, statically generated, revalidated every 12h
-- `/breeds` — A–Z breed directory
-- `/breed/<id>-<slug>` — per-breed gallery + breed facts
-- `/category/<id>` — theme gallery
-- `/sitemap.xml` — generated from the live category and breed lists
+- `/`: home gallery, statically generated, revalidated every 12h
+- `/breeds`: A–Z breed directory
+- `/breed/<id>-<slug>`: per-breed gallery + breed facts
+- `/category/<id>`: theme gallery
+- `/sitemap.xml`: generated from the live category and breed lists

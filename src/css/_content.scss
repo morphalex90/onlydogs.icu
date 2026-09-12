@@ -62,7 +62,7 @@
     }
 }
 
-/* CSS columns keep the masonry server-rendered — no JS, no layout pop-in. */
+/* CSS columns keep the masonry server-rendered. No JS, no layout pop-in. */
 .grid {
     &__masonry {
         columns: 1;

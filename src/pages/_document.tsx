@@ -15,7 +15,7 @@ export default function Document() {
                 <meta name="theme-color" content="#0b0b0f" />
             </Head>
             <body>
-                <noscript>OnlyDogs works without JavaScript — the first batch of photos is already on the page.</noscript>
+                <noscript>OnlyDogs works without JavaScript. The first batch of photos is already on the page.</noscript>
                 <Main />
                 <NextScript />
             </body>

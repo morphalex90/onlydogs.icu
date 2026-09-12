@@ -55,7 +55,7 @@ export default function Home({ images, categories, breeds }: Props) {
     return (
         <>
             <Seo
-                title="OnlyDogs — endless cute dog photos, free and without signup"
+                title="OnlyDogs: endless cute dog photos, free and without signup"
                 description={SITE_DESCRIPTION}
                 path="/"
                 image={images[0]?.url}

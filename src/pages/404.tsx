@@ -10,7 +10,7 @@ export default function Page404() {
                 <section className="hero">
                     <div className="container">
                         <h1 className="hero__title">This page ran off</h1>
-                        <p className="hero__lead">Nothing here — but the dogs are one tap away.</p>
+                        <p className="hero__lead">Nothing here, but the dogs are one tap away.</p>
                         <div className="grid__actions grid__actions--left">
                             <Link className="button" href="/">
                                 Back to the dogs

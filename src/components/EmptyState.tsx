@@ -1,5 +1,5 @@
 /**
- * Shown when the dog API returns nothing — usually a missing or rate-limited key.
+ * Shown when the dog API returns nothing, usually a missing or rate-limited key.
  * In development we say so out loud, in production we keep it friendly.
  */
 export default function EmptyState({ what = 'dogs' }: { what?: string }) {

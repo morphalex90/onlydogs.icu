@@ -16,7 +16,7 @@ type Props = {
 export default function CategoryPage({ category, images, categories }: Props) {
     const name = humanize(category.name)
     const path = `/category/${category.id}`
-    const description = `Dog photos tagged "${name.toLowerCase()}" on ${SITE_NAME}. Load a new batch whenever you want — free, no account needed.`
+    const description = `Dog photos tagged "${name.toLowerCase()}" on ${SITE_NAME}. Load a new batch whenever you want. Free, no account needed.`
 
     const jsonLd = [
         {
