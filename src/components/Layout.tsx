@@ -1,25 +1,16 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import { ReactNode, useEffect, useState } from 'react'
+import { Category } from '@/types'
+import { ReactNode } from 'react'
 
-export default function Layout({ children }: { children: ReactNode }) {
-    const [mainPadding, setMainPadding] = useState<number>(58)
-
-    useEffect(() => {
-        setTimeout(function () {
-            const header = document.querySelector('header') as HTMLElement | null
-            if (header !== null) {
-                setMainPadding(header.offsetHeight)
-            }
-        }, 200)
-    }, [mainPadding])
-
+export default function Layout({ children, categories = [] }: { children: ReactNode; categories?: Category[] }) {
     return (
         <>
-            <Header />
-            <main id="main-content" style={{ paddingTop: mainPadding }}>
-                {children}
-            </main>
+            <a className="skip-link" href="#main-content">
+                Skip to the dogs
+            </a>
+            <Header categories={categories} />
+            <main id="main-content">{children}</main>
             <Footer />
         </>
     )

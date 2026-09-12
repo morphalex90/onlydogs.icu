@@ -1,102 +1,102 @@
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
-    padding: 20px 0;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 100;
+    background: rgba(11, 11, 15, 0.88);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top);
 
-    &__container {
+    &__bar {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
-        width: 95%;
-        max-width: 1400px;
-        margin: auto;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        max-width: var(--container);
+        margin-inline: auto;
+        padding: 12px 18px;
+
+        @media (min-width: 768px) {
+            padding-inline: 28px;
+        }
     }
 
     &__logo {
-        width: 100%;
-        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
 
-        @media only screen and (min-width: 768px) {
-            max-width: 200px;
-            text-align: left;
+        span {
+            color: var(--accent);
         }
     }
 
-    &__categories {
-        width: 100%;
+    &__main-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
 
-        @media only screen and (min-width: 768px) {
-            max-width: calc(100% - 200px);
-        }
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 0 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
 
-        &__list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0 10px;
-            justify-content: center;
-
-            @media only screen and (min-width: 768px) {
-                justify-content: flex-end;
-                gap: 0 20px;
-            }
-
-            margin: 0;
-            padding-left: 0;
-            list-style-type: none;
-
-            li {
-                a {
-                    text-transform: capitalize;
-                    &.is-active {
-                        color: #ff1493;
-                    }
-                }
+            &.is-active {
+                color: var(--accent);
             }
         }
     }
 
-    &__breeds {
-        width: 100%;
-        max-width: 100%;
+    /* Horizontal theme scroller: the mobile pattern people already know. */
+    &__chips {
+        position: relative;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
 
-        nav {
-            overflow-x: scroll;
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
-            &::-webkit-scrollbar {
-                display: none;
+        ul {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0 18px 12px;
+            width: max-content;
+            min-width: 100%;
+
+            @media (min-width: 768px) {
+                padding-inline: 28px;
+                margin-inline: auto;
+                max-width: var(--container);
             }
         }
 
-        &__list {
-            margin: 0;
-            margin-top: 10px;
-            padding-left: 0;
-            display: flex;
-            gap: 10px;
-            list-style-type: none;
+        a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 40px;
+            padding: 0 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--bg-soft);
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
 
-            li {
-                flex: 0 0 auto;
-                background-color: #ff1493;
-                border-radius: 15px;
-                padding: 7px 13px;
-                // cursor: pointer;
-
-                button {
-                    background-color: transparent;
-                    border: 0;
-                    font-size: inherit;
-                    color: inherit;
-                    font-family: inherit;
-                    font-weight: inherit;
-                    cursor: pointer;
-                    margin: inherit;
-                }
+            &.is-active {
+                background: var(--accent);
+                border-color: var(--accent);
+                color: var(--accent-ink);
             }
         }
     }

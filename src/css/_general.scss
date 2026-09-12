@@ -1,44 +1,49 @@
+:root {
+    --ink: #f5f3f7;
+    --ink-soft: #b9b4c4;
+    --bg: #0b0b0f;
+    --bg-soft: #14141b;
+    --line: #26262f;
+    --accent: #ff1493;
+    --accent-ink: #ffffff;
+    --radius: 14px;
+    --gap: 14px;
+    --container: 1320px;
+}
+
 *,
 ::after,
 ::before {
     box-sizing: border-box;
 }
 
-::-moz-selection {
-    color: #fff;
-    background: #ff1493;
+html {
+    -webkit-text-size-adjust: 100%;
 }
 
 ::selection {
-    color: #fff;
-    background: #ff1493;
+    color: var(--accent-ink);
+    background: var(--accent);
 }
 
 body {
     margin: 0;
-    font-family: 'Fira Mono', monospace;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        'Helvetica Neue',
+        Arial,
+        sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #000;
-    // font-size: 14px;
-    color: #fff;
 }
-
-// .visually-hidden {
-//     background-color: #fff;
-//     padding: 7px 3px;
-//     border-radius: 0 0 3px 3px;
-//     position: absolute;
-//     left: 20px;
-//     transform: translateY(-370%);
-//     transition: transform 325ms ease-in;
-//     color: #000 !important;
-//     z-index: 1000;
-
-//     &:focus {
-//         transform: translateY(0);
-//     }
-// }
 
 img {
     max-width: 100%;
@@ -46,96 +51,107 @@ img {
 }
 
 a {
-    color: #fff;
+    color: var(--ink);
     text-decoration: none;
-    transition: all 0.4s;
+    transition: color 0.2s ease;
 
     &:hover {
-        color: #ff1493 !important;
+        color: var(--accent);
     }
 }
 
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// p {
-//     margin-top: 0;
-// }
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
 
-// h1 {
-//     text-align: center;
-
-//     &::first-letter {
-//         font-size: 30px;
-//         color: #ff1493;
-//     }
-
-//     @media only screen and (min-width: 768px) {
-//         text-align: left;
-//     }
-// }
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
 
 main {
-    // width: 95%;
-    max-width: 100%;
-    // margin: 0 auto;
-    padding-top: 58px;
-    min-height: calc(100vh - 54px);
-    overflow: hidden;
+    min-height: 60vh;
+    padding-bottom: 8px;
 }
 
-// .d-flex {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 15px;
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 18px;
 
-//     @media only screen and (min-width: 768px) {
-//         flex-direction: row;
-//         flex-wrap: wrap;
-
-//         > * {
-//             flex-grow: 1;
-//             flex-basis: 0;
-//         }
-//     }
-// }
-
-// .text-center {
-//     text-align: center;
-// }
-
-// .text-right {
-//     text-align: right;
-// }
-
-// ul {
-//     margin-top: 0px;
-//     padding-left: 15px;
-// }
-
-.button {
-    padding: 12px 20px;
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: #ff1493;
-    color: #fff;
-    border: 1px solid #ff1493;
-    transition: all 0.4s;
-    font-weight: bold;
-    font-size: 15px;
-
-    &:hover {
-        border: 1px solid #fff;
+    @media (min-width: 768px) {
+        padding-inline: 28px;
     }
 }
 
-.section {
-    &__container {
-        width: 95%;
-        max-width: 1400px;
-        margin: auto;
+.skip-link {
+    position: absolute;
+    left: 16px;
+    top: 0;
+    z-index: 1000;
+    transform: translateY(-200%);
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 10px 14px;
+    border-radius: 0 0 10px 10px;
+    font-weight: 600;
+
+    &:focus {
+        transform: translateY(0);
+        color: var(--accent-ink);
+    }
+}
+
+/* Buttons are thumb-sized first, decorative second. */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background-color: var(--accent);
+    color: var(--accent-ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+        color: var(--accent-ink);
+        transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: progress;
+    }
+
+    &--ghost {
+        background-color: transparent;
+        border-color: var(--line);
+        color: var(--ink);
+
+        &:hover:not(:disabled) {
+            border-color: var(--ink-soft);
+            color: var(--ink);
+        }
     }
 }
