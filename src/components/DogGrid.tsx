@@ -69,7 +69,7 @@ export default function DogGrid({ initialImages, category = null, breed = null, 
 
     return (
         <div className="grid">
-            <div className="grid__masonry">
+            <div className="grid__masonry" aria-busy={status === 'loading'}>
                 {images.map((image, index) => (
                     <figure className="dog-card" key={`${image.id}-${index}`}>
                         <Image
@@ -91,6 +91,7 @@ export default function DogGrid({ initialImages, category = null, breed = null, 
             <p className="grid__status" role="status" aria-live="polite">
                 {status === 'loading' && 'Fetching more dogs…'}
                 {status === 'error' && 'The dogs are napping. Try again in a moment.'}
+                {status === 'idle' && `${images.length} dog photos loaded.`}
             </p>
 
             <div className="grid__actions">

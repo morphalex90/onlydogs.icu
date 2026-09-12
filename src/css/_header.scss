@@ -2,8 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11, 11, 15, 0.88);
-    backdrop-filter: saturate(140%) blur(10px);
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
     padding-top: env(safe-area-inset-top);
 
@@ -23,12 +22,15 @@
     }
 
     &__logo {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
         font-size: 20px;
         font-weight: 800;
         letter-spacing: -0.02em;
 
         span {
-            color: var(--accent);
+            color: var(--accent-text);
         }
     }
 
@@ -48,7 +50,7 @@
             font-size: 15px;
 
             &.is-active {
-                color: var(--accent);
+                color: var(--accent-text);
             }
         }
     }
@@ -84,10 +86,10 @@
         a {
             display: inline-flex;
             align-items: center;
-            min-height: 40px;
+            min-height: 44px;
             padding: 0 16px;
             border-radius: 999px;
-            border: 1px solid var(--line);
+            border: 1px solid var(--line-strong);
             background: var(--bg-soft);
             font-size: 14px;
             font-weight: 600;

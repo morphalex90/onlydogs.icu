@@ -39,7 +39,7 @@ export default function BreedsPage({ breeds, categories }: Props) {
                 <section className="hero hero--compact">
                     <div className="container">
                         <nav className="breadcrumb" aria-label="Breadcrumb">
-                            <Link href="/">Dogs</Link> <span aria-hidden="true">/</span> <span>Breeds</span>
+                            <Link href="/">Dogs</Link> <span aria-hidden="true">/</span> <span aria-current="page">Breeds</span>
                         </nav>
                         <h1 className="hero__title">Dog breeds, A to Z</h1>
                         <p className="hero__lead">
@@ -49,13 +49,16 @@ export default function BreedsPage({ breeds, categories }: Props) {
                     </div>
                 </section>
 
-                <section className="section">
+                <section className="section" aria-labelledby="breed-index">
                     <div className="container">
+                        <h2 id="breed-index" className="sr-only">
+                            Breed index
+                        </h2>
                         {breeds.length === 0 && <EmptyState what="breeds" />}
                         <nav className="alpha-nav" aria-label="Jump to letter">
                             {letters.map((letter) => (
-                                <a key={letter} href={`#letter-${letter}`}>
-                                    {letter}
+                                <a key={letter} href={`#letter-${letter}`} aria-label={`Jump to breeds starting with ${letter}`}>
+                                    <span aria-hidden="true">{letter}</span>
                                 </a>
                             ))}
                         </nav>
@@ -65,10 +68,15 @@ export default function BreedsPage({ breeds, categories }: Props) {
                                 <h2 id={`letter-${letter}`} className="breed-group__title">
                                     {letter}
                                 </h2>
-                                <ul className="chip-list">
+                                <ul className="chip-list" aria-labelledby={`letter-${letter}`}>
                                     {groups[letter].map((breed) => (
                                         <li key={breed.id}>
-                                            <Link href={`/breed/${breed.id}-${slugify(breed.name)}`}>{breed.name}</Link>
+                                            <Link
+                                                href={`/breed/${breed.id}-${slugify(breed.name)}`}
+                                                aria-label={`${breed.name} photos and breed facts`}
+                                            >
+                                                {breed.name}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

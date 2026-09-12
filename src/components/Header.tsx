@@ -15,7 +15,7 @@ export default function Header({ categories = [] }: { categories?: Category[] })
                 </Link>
 
                 <nav className="header__main-nav" aria-label="Main">
-                    <Link href="/breeds" className={isActive('/breeds') ? 'is-active' : ''}>
+                    <Link href="/breeds" className={isActive('/breeds') ? 'is-active' : ''} aria-current={isActive('/breeds') ? 'page' : undefined}>
                         Breeds
                     </Link>
                 </nav>
@@ -25,13 +25,17 @@ export default function Header({ categories = [] }: { categories?: Category[] })
                 <nav className="header__chips" aria-label="Photo themes">
                     <ul>
                         <li>
-                            <Link href="/" className={isActive('/') ? 'is-active' : ''}>
+                            <Link href="/" className={isActive('/') ? 'is-active' : ''} aria-current={isActive('/') ? 'page' : undefined}>
                                 All dogs
                             </Link>
                         </li>
                         {categories.map((category) => (
                             <li key={category.id}>
-                                <Link href={`/category/${category.id}`} className={isActive(`/category/${category.id}`) ? 'is-active' : ''}>
+                                <Link
+                                    href={`/category/${category.id}`}
+                                    className={isActive(`/category/${category.id}`) ? 'is-active' : ''}
+                                    aria-current={isActive(`/category/${category.id}`) ? 'page' : undefined}
+                                >
                                     {humanize(category.name)}
                                 </Link>
                             </li>

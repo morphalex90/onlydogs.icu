@@ -96,7 +96,9 @@ export default function Home({ images, categories, breeds }: Props) {
                             <ul className="chip-list">
                                 {breeds.map((breed) => (
                                     <li key={breed.id}>
-                                        <Link href={`/breed/${breed.id}-${slugify(breed.name)}`}>{breed.name}</Link>
+                                        <Link href={`/breed/${breed.id}-${slugify(breed.name)}`} aria-label={`${breed.name} photos and breed facts`}>
+                                            {breed.name}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -116,7 +118,12 @@ export default function Home({ images, categories, breeds }: Props) {
                             <ul className="chip-list">
                                 {categories.map((category) => (
                                     <li key={category.id}>
-                                        <Link href={`/category/${category.id}`}>{humanize(category.name)}</Link>
+                                        <Link
+                                            href={`/category/${category.id}`}
+                                            aria-label={`Dog photos with ${humanize(category.name).toLowerCase()}`}
+                                        >
+                                            {humanize(category.name)}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

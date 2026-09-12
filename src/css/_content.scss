@@ -17,7 +17,7 @@
         font-weight: 800;
 
         span {
-            color: var(--accent);
+            color: var(--accent-text);
         }
     }
 
@@ -51,6 +51,9 @@
     color: var(--ink-soft);
 
     a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
         color: var(--ink-soft);
     }
 
@@ -128,9 +131,9 @@
         bottom: 10px;
         padding: 6px 12px;
         border-radius: 999px;
-        background: rgba(11, 11, 15, 0.72);
-        backdrop-filter: blur(6px);
-        font-size: 13px;
+        background: var(--bg);
+        border: 1px solid var(--line-strong);
+        font-size: 14px;
         font-weight: 600;
     }
 }
@@ -146,10 +149,10 @@
     a {
         display: inline-flex;
         align-items: center;
-        min-height: 40px;
+        min-height: 44px;
         padding: 0 14px;
         border-radius: 999px;
-        border: 1px solid var(--line);
+        border: 1px solid var(--line-strong);
         background: var(--bg-soft);
         font-size: 14px;
         font-weight: 600;
@@ -165,7 +168,7 @@
     align-items: center;
     min-height: 44px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--accent-text);
 }
 
 .alpha-nav {
@@ -178,10 +181,10 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 40px;
-        min-height: 40px;
+        min-width: 44px;
+        min-height: 44px;
         border-radius: 10px;
-        border: 1px solid var(--line);
+        border: 1px solid var(--line-strong);
         font-weight: 700;
     }
 }
@@ -192,13 +195,17 @@
     &__title {
         margin: 0 0 10px;
         font-size: 18px;
-        color: var(--accent);
+        color: var(--accent-text);
         scroll-margin-top: 120px;
     }
 }
 
 .prose {
     max-width: 72ch;
+
+    p + p {
+        margin-top: calc(1.55em * 1.5);
+    }
 }
 
 .faq,
@@ -240,7 +247,7 @@
 }
 
 .empty {
-    border: 1px dashed var(--line);
+    border: 1px dashed var(--line-strong);
     border-radius: var(--radius);
     padding: 28px 20px;
     text-align: center;

@@ -65,7 +65,7 @@ export default function BreedPage({ breed, images, categories, related }: Props)
                     <div className="container">
                         <nav className="breadcrumb" aria-label="Breadcrumb">
                             <Link href="/">Dogs</Link> <span aria-hidden="true">/</span> <Link href="/breeds">Breeds</Link>{' '}
-                            <span aria-hidden="true">/</span> <span>{breed.name}</span>
+                            <span aria-hidden="true">/</span> <span aria-current="page">{breed.name}</span>
                         </nav>
                         <h1 className="hero__title">{breed.name} photos</h1>
                         {breed.bred_for && (
@@ -78,8 +78,11 @@ export default function BreedPage({ breed, images, categories, related }: Props)
                     </div>
                 </section>
 
-                <section className="section">
+                <section className="section" aria-labelledby="breed-gallery">
                     <div className="container">
+                        <h2 id="breed-gallery" className="sr-only">
+                            {breed.name} photo gallery
+                        </h2>
                         <DogGrid initialImages={images} breed={String(breed.id)} subject={breed.name} />
                     </div>
                 </section>
@@ -110,7 +113,9 @@ export default function BreedPage({ breed, images, categories, related }: Props)
                             <ul className="chip-list">
                                 {related.map((item) => (
                                     <li key={item.id}>
-                                        <Link href={`/breed/${item.id}-${slugify(item.name)}`}>{item.name}</Link>
+                                        <Link href={`/breed/${item.id}-${slugify(item.name)}`} aria-label={`${item.name} photos and breed facts`}>
+                                            {item.name}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

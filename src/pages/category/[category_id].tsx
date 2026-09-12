@@ -44,7 +44,7 @@ export default function CategoryPage({ category, images, categories }: Props) {
                 <section className="hero hero--compact">
                     <div className="container">
                         <nav className="breadcrumb" aria-label="Breadcrumb">
-                            <Link href="/">Dogs</Link> <span aria-hidden="true">/</span> <span>{name}</span>
+                            <Link href="/">Dogs</Link> <span aria-hidden="true">/</span> <span aria-current="page">{name}</span>
                         </nav>
                         <h1 className="hero__title">Dogs with {name.toLowerCase()}</h1>
                         <p className="hero__lead">
@@ -54,8 +54,11 @@ export default function CategoryPage({ category, images, categories }: Props) {
                     </div>
                 </section>
 
-                <section className="section">
+                <section className="section" aria-labelledby="category-gallery">
                     <div className="container">
+                        <h2 id="category-gallery" className="sr-only">
+                            Photo gallery: dogs with {name.toLowerCase()}
+                        </h2>
                         <DogGrid initialImages={images} category={String(category.id)} subject={`Dog with ${name.toLowerCase()}`} />
                     </div>
                 </section>
