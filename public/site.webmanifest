@@ -1,0 +1,18 @@
+{
+    "name": "OnlyDogs",
+    "short_name": "OnlyDogs",
+    "description": "A wall of dog photos. No account, no popups.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#0b0b0f",
+    "theme_color": "#0b0b0f",
+    "icons": [
+        { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+        { "src": "/maskable-icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+        { "src": "/maskable-icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+        { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+    ]
+}

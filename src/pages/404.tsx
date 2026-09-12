@@ -1,20 +1,23 @@
 import Layout from '@/components/Layout'
-import Head from 'next/head'
+import Seo from '@/components/Seo'
+import Link from 'next/link'
 
-export default function page404() {
+export default function Page404() {
     return (
         <>
-            <Head>
-                <title>OnlyDogs</title>
-                <meta name="description" content="OnlyDogs dogs" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <Seo title="Page not found" description="That page ran off. The dogs are still here." path="/404" noindex />
             <Layout>
-                <section className="section">
-                    <div className="section__container">
-                        <div style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <div>No dogs found, please try again</div>
+                <section className="hero">
+                    <div className="container">
+                        <h1 className="hero__title">This page ran off</h1>
+                        <p className="hero__lead">Nothing here, but the dogs are one tap away.</p>
+                        <div className="grid__actions grid__actions--left">
+                            <Link className="button" href="/">
+                                Back to the dogs
+                            </Link>
+                            <Link className="button button--ghost" href="/breeds">
+                                Browse breeds
+                            </Link>
                         </div>
                     </div>
                 </section>

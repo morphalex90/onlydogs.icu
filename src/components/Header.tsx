@@ -1,86 +1,58 @@
-import { Breed } from '@/contex/BreedContext'
-import telegram from '@/img/telegram.png'
-import { BreedType, Cat } from '@/types'
-import axios from 'axios'
-import Image from 'next/image'
+import { humanize } from '@/lib/dogapi'
+import { Category } from '@/types'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useContext, useEffect, useState } from 'react'
 
-export default function Header() {
-    const [categories, setCategories] = useState([])
-    const [breeds, setBreeds] = useState([])
-
+export default function Header({ categories = [] }: { categories?: Category[] }) {
     const router = useRouter()
-
-    const { breed, setBreed } = useContext(Breed)
-
-    useEffect(() => {
-        getCategories()
-
-        if (router.pathname !== '/category/[category_id]') {
-            getBreeds()
-        }
-    }, [breed])
-
-    const getCategories = () => {
-        axios.get('https://api.thedogapi.com/v1/categories?page=0&limit=15&api_key=' + process.env.NEXT_PUBLIC_CAT_API).then((res) => {
-            setCategories(res.data)
-        })
-        // .catch((err) => { console.log(err); });
-    }
-
-    const getBreeds = () => {
-        axios.get('https://api.thedogapi.com/v1/breeds?page=0&limit=100&api_key=' + process.env.NEXT_PUBLIC_CAT_API).then((res) => {
-            setBreeds(res.data)
-        })
-        // .catch((err) => { console.log(err); });
-    }
+    const isActive = (href: string) => router.asPath.split('?')[0] === href
 
     return (
         <header className="header">
-            <div className="header__container">
-                <div className="header__logo">
-                    <Link href="/">OnlyDogs</Link>
-                </div>
+            <div className="header__bar">
+                <Link className="header__logo" href="/">
+                    <svg className="header__logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                        <rect width="64" height="64" rx="15" fill="#ff69b4" />
+                        <g fill="#0b0b0f" transform="rotate(-35 32 32) scale(0.87) translate(4.8 4.8)">
+                            <rect x="15" y="26" width="34" height="12" rx="6" />
+                            <circle cx="16" cy="25" r="8" />
+                            <circle cx="16" cy="39" r="8" />
+                            <circle cx="48" cy="25" r="8" />
+                            <circle cx="48" cy="39" r="8" />
+                        </g>
+                    </svg>
+                    Only<span>Dogs</span>
+                </Link>
 
-                <div className="header__categories">
-                    {categories.length > 0 && (
-                        <nav>
-                            <ul className="header__categories__list">
-                                {categories.map((cat: Cat) => (
-                                    <li key={cat.id}>
-                                        <Link href={'/category/' + cat.id} className={router.asPath === '/category/' + cat.id ? 'is-active' : ''}>
-                                            {cat.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                                <li>
-                                    <Link href="https://t.me/+C6ZhfIzJVL84M2M0" target="_blank" rel="noreferrer">
-                                        <Image src={telegram} height="20" width="20" alt="Telegram" title="Join the Telegram channel" />
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    )}
-                </div>
-
-                <div className="header__breeds">
-                    {breeds.length > 0 && (
-                        <nav>
-                            <ul className="header__breeds__list">
-                                {breeds.map((tmpBreed: BreedType) => (
-                                    <li key={tmpBreed.id}>
-                                        <button type="button" onClick={() => setBreed(tmpBreed.id)}>
-                                            {tmpBreed.name}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </nav>
-                    )}
-                </div>
+                <nav className="header__main-nav" aria-label="Main">
+                    <Link href="/breeds" className={isActive('/breeds') ? 'is-active' : ''} aria-current={isActive('/breeds') ? 'page' : undefined}>
+                        Breeds
+                    </Link>
+                </nav>
             </div>
+
+            {categories.length > 0 && (
+                <nav className="header__chips" aria-label="Photo themes">
+                    <ul>
+                        <li>
+                            <Link href="/" className={isActive('/') ? 'is-active' : ''} aria-current={isActive('/') ? 'page' : undefined}>
+                                All dogs
+                            </Link>
+                        </li>
+                        {categories.map((category) => (
+                            <li key={category.id}>
+                                <Link
+                                    href={`/category/${category.id}`}
+                                    className={isActive(`/category/${category.id}`) ? 'is-active' : ''}
+                                    aria-current={isActive(`/category/${category.id}`) ? 'page' : undefined}
+                                >
+                                    {humanize(category.name)}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </header>
     )
 }
