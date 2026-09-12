@@ -1,0 +1,17 @@
+# OnlyDogs
+
+> OnlyDogs is a free, no-signup wall of dog photos. Browse by breed or theme, refresh for a new batch, and save the ones that make your day better.
+
+Photos and breed data come from [The Dog API](https://thedogapi.com). The site is a Next.js app; image requests are proxied server-side through `/api/images` so the API key never reaches the browser. Static pages regenerate every 12 hours.
+
+## Pages
+
+- [Home](https://onlydogs.icu/): main gallery, refreshable batches of dog photos
+- [Breeds](https://onlydogs.icu/breeds): A–Z breed directory
+- [Breed pages](https://onlydogs.icu/breeds): at `/breed/<id>-<slug>`, a per-breed gallery plus breed facts (temperament, life span, weight, origin)
+
+## Optional
+
+- [Sitemap](https://onlydogs.icu/sitemap.xml): breed URLs, generated from the live breed list
+- [robots.txt](https://onlydogs.icu/robots.txt): crawl rules; `/api/` is disallowed
+- [The Dog API](https://thedogapi.com): upstream source for all images and breed data
