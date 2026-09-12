@@ -34,6 +34,15 @@
         }
     }
 
+    /* Fixed box so the mark never reflows while the font loads. */
+    &__logo-mark {
+        flex: none;
+        margin-inline-end: 9px;
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+    }
+
     &__main-nav {
         display: flex;
         align-items: center;

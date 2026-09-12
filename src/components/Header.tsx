@@ -11,6 +11,16 @@ export default function Header({ categories = [] }: { categories?: Category[] })
         <header className="header">
             <div className="header__bar">
                 <Link className="header__logo" href="/">
+                    <svg className="header__logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                        <rect width="64" height="64" rx="15" fill="#ff69b4" />
+                        <g fill="#0b0b0f" transform="rotate(-35 32 32) scale(0.87) translate(4.8 4.8)">
+                            <rect x="15" y="26" width="34" height="12" rx="6" />
+                            <circle cx="16" cy="25" r="8" />
+                            <circle cx="16" cy="39" r="8" />
+                            <circle cx="48" cy="25" r="8" />
+                            <circle cx="48" cy="39" r="8" />
+                        </g>
+                    </svg>
                     Only<span>Dogs</span>
                 </Link>
 
