@@ -10,10 +10,10 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.3.5",
+    "next": "16.4.1",
     "next-plausible": "^4.0.0",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "sass": "^1.97.2"
   },
   "devDependencies": {
@@ -22,7 +22,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.3.5",
+    "eslint-config-next": "16.4.1",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
