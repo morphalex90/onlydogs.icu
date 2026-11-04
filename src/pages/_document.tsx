@@ -1,3 +1,4 @@
+import { AD_LOADER_SCRIPT } from '@/lib/ads'
 import { THEME_BOOTSTRAP_SCRIPT } from '@/lib/theme'
 import { Head, Html, Main, NextScript } from 'next/document'
 
@@ -40,6 +41,7 @@ export default function Document() {
                 <noscript>OnlyDogs works without JavaScript. The first batch of photos is already on the page.</noscript>
                 <Main />
                 <NextScript />
+                <script dangerouslySetInnerHTML={{ __html: AD_LOADER_SCRIPT }} />
             </body>
         </Html>
     )
